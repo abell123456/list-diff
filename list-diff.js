@@ -106,3 +106,5 @@ function addRemoveItem(list, item, index) {
 function removeItem(list, index) {
 	list.splice(index, 1);
 }
+
+module.exports = diff;
