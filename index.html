@@ -12,12 +12,12 @@
 		
 		var moves = diff(oldList, newList, "id");
 		// `moves` is a sequence of actions (remove or insert): 
-		// type 0 is removing, type 1 is inserting
+		// type delete is removing, type insert is inserting
 		// moves: [
-		//   {index: 3, type: 0},
-		//   {index: 0, type: 1, item: {id: "c"}}, 
-		//   {index: 0, type: 0}, 
-		//   {index: 4, type: 1, item: {id: "f"}}
+		//   {index: 3, type: "delete"},
+		//   {index: 0, type: "insert", item: {id: "c"}}, 
+		//   {index: 0, type: "delete"}, 
+		//   {index: 4, type: "insert", item: {id: "f"}}
 		//  ]
 
 		console.log('moves:', moves);
