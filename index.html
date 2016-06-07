@@ -1,0 +1,38 @@
+<!DOCTYPE>
+<html>
+<head>
+</head>
+<body>
+	<script src='./list-diff.js'></script>
+
+	<script>
+		var oldList = [{id: "a"}, {id: "b"}, {id: "c"}, {id: "d"}, {id: "e"}];
+		var newList = [{id: "c"}];
+		
+		
+		var moves = diff(oldList, newList, "id");
+		// `moves` is a sequence of actions (remove or insert): 
+		// type 0 is removing, type 1 is inserting
+		// moves: [
+		//   {index: 3, type: 0},
+		//   {index: 0, type: 1, item: {id: "c"}}, 
+		//   {index: 0, type: 0}, 
+		//   {index: 4, type: 1, item: {id: "f"}}
+		//  ]
+
+		console.log('moves:', moves);
+
+		moves.forEach(function(move) {
+		  	if (move.type === 'delete') {
+		    	oldList.splice(move.index, 1); // type delete is removing
+		  	} else {
+		    	oldList.splice(move.index, 0, move.item); // type 1 is inserting
+		  	}
+		});
+
+		// now `oldList` is equal to `newList`
+		// [{id: "c"}, {id: "a"}, {id: "b"}, {id: "e"}, {id: "f"}]
+		console.log(oldList);
+	</script>
+</body>
+</html>
